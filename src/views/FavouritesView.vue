@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="back" @click="$router.back()">{{ "<-  Back" }}</div>
     <h1>Favourites Recipes</h1>
     <RecipesList :recipes="favourites" />
   </div>
@@ -28,6 +29,17 @@ h1 {
   margin-bottom: 20px;
   @media (min-width: 768px) {
     font-size: 32px;
+  }
+}
+.back {
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #6d544c;
+  cursor: pointer;
+  width: fit-content;
+  &:hover {
+    text-decoration: underline;
   }
 }
 </style>
