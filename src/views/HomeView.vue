@@ -4,8 +4,8 @@
       <SearchInput v-model="searchQuery" placeholder="Search recipes..." />
       <SortSelect v-model="tagQuery" :options="tags" />
     </div>
-    <RecipesList :isLoading="isLoading" :columns="4" :recipes="recipes" />
-    <div v-if="isLoading">Downloading...</div>
+    <RecipesList :isLoading="isLoading" :recipes="recipes" />
+    <div v-if="isLoading">Loading...</div>
     <div ref="loadMoreTrigger" class="load-more-trigger" />
   </div>
 </template>
@@ -69,8 +69,17 @@ export default {
   margin-top: 30px;
 }
 .sort-container {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 20px;
+  margin-bottom: 25px;
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
 }
 </style>

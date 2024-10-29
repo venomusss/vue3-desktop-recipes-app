@@ -21,7 +21,6 @@ export default {
   border: 2px solid #6d544c;
   border-radius: 25px;
   padding: 15px 20px;
-  margin-bottom: 25px;
   color: #6d544c;
   outline: none;
   font-size: 18px;

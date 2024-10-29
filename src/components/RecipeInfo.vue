@@ -50,11 +50,7 @@
     </div>
     <div class="similar">
       <strong>Similar Recipes:</strong>
-      <RecipesList
-        v-if="similar && similar.length > 0"
-        :recipes="similar"
-        :columns="4"
-      />
+      <RecipesList v-if="similar && similar.length > 0" :recipes="similar" />
     </div>
   </div>
 </template>
@@ -77,13 +73,18 @@ export default {
 
 <style scoped>
 .recipe-wrapper {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   img {
     width: 100%;
     height: auto;
     border-radius: 50px;
+  }
+  @media (min-width: 1024px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
   }
 }
 .recipe-content {
@@ -96,9 +97,12 @@ export default {
 }
 .stat-items {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 1px;
   background: #977266;
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 .ingredients {
   display: flex;
@@ -134,11 +138,15 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: 100px;
+  margin-top: 50px;
   strong {
     font-size: 24px;
     color: #6d544c;
     font-weight: 500;
+  }
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 100px;
   }
 }
 </style>

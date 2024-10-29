@@ -1,5 +1,5 @@
 <template>
-  <div v-if="isLoading">Downloading...</div>
+  <div v-if="isLoading">Loading...</div>
   <RecipeInfo v-else-if="recipe" :recipe="recipe" :similar="similar" />
 </template>
 

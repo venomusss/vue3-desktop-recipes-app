@@ -60,20 +60,15 @@ img {
   opacity: 1;
 }
 
-@keyframes shimmer {
-  0% {
-    background-position: 200% 0;
-  }
-  100% {
-    background-position: -200% 0;
-  }
-}
 .card-content {
   display: flex;
   flex-direction: column;
   gap: 10px;
   box-sizing: border-box;
-  padding: 10px 20px 15px 20px;
+  padding: 10px 15px;
+  @media (min-width: 768px) {
+    padding: 10px 20px 15px 20px;
+  }
 }
 .details {
   color: #977266;

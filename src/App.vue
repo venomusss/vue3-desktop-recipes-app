@@ -26,6 +26,13 @@ strong {
   font-weight: 500;
 }
 .content {
-  padding: 30px 60px;
+  padding: 30px 20px;
+  min-height: 100vh;
+  @media (min-width: 768px) {
+    padding: 30px;
+  }
+  @media (min-width: 1024px) {
+    padding: 30px 60px;
+  }
 }
 </style>

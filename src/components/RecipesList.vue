@@ -1,11 +1,5 @@
 <template>
-  <div
-    v-if="recipes.length > 0"
-    class="recipes-list"
-    :style="{
-      gridTemplateColumns: `repeat(${columns}, 1fr) `,
-    }"
-  >
+  <div v-if="recipes.length > 0" class="recipes-list" :style="{}">
     <RecipeCard v-for="recipe in recipes" :key="recipe.id" :recipe="recipe" />
   </div>
   <div v-else-if="!isLoading && recipes.length === 0">There is no recipes</div>
@@ -20,10 +14,6 @@ export default {
       type: Array,
       required: true,
     },
-    columns: {
-      type: Number,
-      default: 3,
-    },
     isLoading: {
       type: Boolean,
       default: false,
@@ -37,5 +27,18 @@ export default {
 .recipes-list {
   display: grid;
   gap: 20px;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 </style>
