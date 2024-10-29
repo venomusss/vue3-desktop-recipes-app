@@ -1,6 +1,9 @@
 <template>
   <div class="card-wrapper">
-    <img :alt="recipe.name" :src="recipe.image" />
+    <div
+      class="card-image"
+      :style="{ backgroundImage: `url(${recipe.image})` }"
+    />
     <div class="card-content">
       <h3 class="card-title">{{ recipe.name }}</h3>
       <p>
@@ -48,16 +51,22 @@ export default {
   }
 }
 
-img {
-  width: 100%;
-  height: auto;
+.card-image {
   border-radius: 14px;
-  min-height: 240px;
+  height: 240px;
   background-color: rgb(211, 211, 211);
-}
-
-.image-loaded {
-  opacity: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  @media (min-width: 768px) {
+    height: 280px;
+  }
+  @media (min-width: 1024px) {
+    height: 300px;
+  }
+  @media (min-width: 1024px) {
+    height: 360px;
+  }
 }
 
 .card-content {
